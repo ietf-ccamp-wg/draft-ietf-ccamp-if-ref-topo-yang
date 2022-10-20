@@ -5,14 +5,14 @@
 ccamp                                                         J. Ahlberg
 Internet-Draft                                              S. Mansfield
 Intended status: Standards Track                                Ericsson
-Expires: 9 April 2023                                              M. Ye
+Expires: 23 April 2023                                             M. Ye
                                                                  I. Busi
                                                      Huawei Technologies
                                                                    X. Li
                                                  NEC Laboratories Europe
                                                             D. Spreafico
                                                               Nokia - IT
-                                                          6 October 2022
+                                                         20 October 2022
 
 
                 A YANG Data Model for Microwave Topology
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 April 2023.
+   This Internet-Draft will expire on 23 April 2023.
 
 Copyright Notice
 
@@ -59,9 +59,9 @@ Copyright Notice
    license-info) in effect on the date of publication of this document.
    Please review these documents carefully, as they describe your rights
    and restrictions with respect to this document.  Code Components
-   extracted from this document must include Revised BSD License text as
-   described in Section 4.e of the Trust Legal Provisions and are
-   provided without warranty as described in the Revised BSD License.
+   extracted from this document must include Simplified BSD License text
+   as described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Simplified BSD License.
 
 Table of Contents
 
@@ -189,35 +189,38 @@ Table of Contents
 
    module: ietf-microwave-topology
 
-   augment /nw:networks/nw:network/nw:network-types/tet:te-topology:
-     +--rw mw-topology!
-   augment /nw:networks/nw:network/nw:node/nt:termination-point/tet:te:
-     +--rw mw-tp-choice
-        +--rw (mw-tp-option)?
-           +--:(microwave-rltp)
-           |  +--rw microwave-rltp!
-           +--:(microwave-ctp)
-              +--rw microwave-ctp!
-   augment
-    /nw:networks/nw:network/nt:link/tet:te/tet:te-link-attributes:
-     +--rw mw-link-choice
-        +--rw (mw-link-option)?
-           +--:(microwave-radio-link)
-           |  +--rw microwave-radio-link!
-           |     +--rw mode?   identityref
-           +--:(microwave-carrier)
-              +--rw microwave-carrier!
-                 +--rw tx-frequency?               uint32
-                 +--rw rx-frequency?               uint32
-                 +--rw channel-separation?         uint32
-                 +--ro actual-tx-cm?               identityref
-                 +--ro actual-snir?                decimal64
-                 +--ro actual-transmitted-level?   power
-   augment /nw:networks/nw:network/nt:link/tet:te/
-            tet:te-link-attributes/tet:max-link-bandwidth/
-            tet:te-bandwidth/tet:technology:
-     +--:(microwave)
-        +--ro mw-bandwidth?   uint64
+     augment /nw:networks/nw:network/nw:network-types/tet:te-topology:
+       +--rw mw-topology!
+     augment /nw:networks/nw:network/nw:node/nt:termination-point
+               /tet:te:
+       +--rw mw-tp-choice
+          +--rw (mw-tp-option)?
+             +--:(microwave-rltp)
+             |  +--rw microwave-rltp!
+             +--:(microwave-ctp)
+                +--rw microwave-ctp!
+     augment /nw:networks/nw:network/nt:link/tet:te
+               /tet:te-link-attributes:
+       +--rw mw-link-choice
+          +--rw (mw-link-option)?
+             +--:(microwave-radio-link)
+             |  +--rw microwave-radio-link!
+             |     +--rw rlt-mode
+             |        +--rw num-bonded-carriers        uint32
+             |        +--rw num-protecting-carriers    uint32
+             +--:(microwave-carrier)
+                +--rw microwave-carrier!
+                   +--rw tx-frequency?               uint32
+                   +--rw rx-frequency?               uint32
+                   +--rw channel-separation?         uint32
+                   +--ro actual-tx-cm?               identityref
+                   +--ro actual-snir?                decimal64
+                   +--ro actual-transmitted-level?   power
+     augment /nw:networks/nw:network/nt:link/tet:te
+               /tet:te-link-attributes/tet:max-link-bandwidth
+               /tet:te-bandwidth/tet:technology:
+       +--:(microwave)
+          +--ro mw-bandwidth?   uint64
 
 3.2.  Relationship between radio links and carriers
 
@@ -270,7 +273,7 @@ Table of Contents
 
 3.6.  Microwave Topology YANG Module
 
-   <CODE BEGINS> file "ietf-microwave-topology@2021-10-20.yang"
+   <CODE BEGINS> file "ietf-microwave-topology.yang"
     module ietf-microwave-topology {
       yang-version "1.1";
       namespace
@@ -302,7 +305,8 @@ Table of Contents
       organization
         "Internet Engineering Task Force (IETF) CCAMP WG";
       contact
-        "WG List: <mailto:ccamp@ietf.org>
+       "WG Web: <https://datatracker.ietf.org/wg/ccamp/>
+        WG List: <mailto:ccamp@ietf.org>
 
    //[JonasA] Who would like to be on the list of editors/contributors?
          Editor: Jonas Ahlberg
@@ -324,19 +328,20 @@ Table of Contents
       description
         "This is a module for microwave topology.
 
-        Copyright (c) 2019 IETF Trust and the persons identified as
-        authors of the code.  All rights reserved.
-        Redistribution and use in source and binary forms, with or
-        without modification, is permitted pursuant to, and subject to
-        the license terms contained in, the Simplified BSD License set
-        forth in Section 4.c of the IETF Trust's Legal Provisions
-        Relating to IETF Documents
-        (http://trustee.ietf.org/license-info).
-        This version of this YANG module is part of RFC XXXX
-        (https://tools.ietf.org/html/rfcXXXX); see the RFC itself for
-        full legal notices.";
+        Copyright (c) 2022 IETF Trust and the persons
+        identified as authors of the code.  All rights reserved.
 
-      revision 2021-10-20   {
+        Redistribution and use in source and binary forms, with or
+        without modification, is permitted pursuant to, and subject
+        to the license terms contained in, the Revised BSD License
+        set forth in Section 4.c of the IETF Trust's Legal Provisions
+        Relating to IETF Documents
+        (https://trustee.ietf.org/license-info).
+
+        This version of this YANG module is part of RFC XXXX; see
+        the RFC itself for full legal notices.";
+
+      revision 2022-10-12   {
         description
         "Draft to be used as a basis for the continued microwave
          team discussions";
@@ -359,6 +364,26 @@ Table of Contents
       /*
        * Groupings
        */
+
+      grouping rlt-mode {
+        description
+          "This grouping provides a flexible definition of number
+          of bonded carriers and protecting carriers of a radio
+          link.";
+        leaf num-bonded-carriers {
+          type uint32;
+          mandatory true;
+          description
+            "Number of bonded carriers.";
+        }
+        leaf num-protecting-carriers {
+          type uint32;
+          mandatory true;
+          description
+            "Number of protecting carriers.";
+        }
+      }
+
       grouping microwave-rltp-attributes {
         description "Grouping used for attributes describing a microwave
                      radio link termination point.";
@@ -376,18 +401,12 @@ Table of Contents
       grouping microwave-radio-link-attributes {
         description "Grouping used for attributes describing a microwave
                      radio link.";
-        leaf mode {
-          type identityref {
-            base mw-types:rlt-mode;
-          }
+        container rlt-mode {
           description
-            "A description of the mode in which the radio link
-             is configured.  The format is X plus Y.
-             X represents the number of bonded carriers.
-             Y represents the number of protecting carriers.
-             Related to the data node rlt-mode in RFC 8561.";
-          reference
-            "RFC 8561: A YANG Data Model for Microwave Radio Link";
+            "This grouping provides a flexible definition of number
+            of bonded carriers and protecting carriers of a radio
+            link.";
+          uses mw-types:rlt-mode;
         }
     // Any other attributes to be included?
       }
@@ -942,57 +961,57 @@ Table of Contents
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
-              <https://www.rfc-editor.org/rfc/rfc2119>.
+              <https://datatracker.ietf.org/doc/html/rfc2119>.
 
    [RFC3688]  Mealling, M., "The IETF XML Registry", BCP 81, RFC 3688,
               DOI 10.17487/RFC3688, January 2004,
-              <https://www.rfc-editor.org/rfc/rfc3688>.
+              <https://datatracker.ietf.org/doc/html/rfc3688>.
 
    [RFC6020]  Bjorklund, M., Ed., "YANG - A Data Modeling Language for
               the Network Configuration Protocol (NETCONF)", RFC 6020,
               DOI 10.17487/RFC6020, October 2010,
-              <https://www.rfc-editor.org/rfc/rfc6020>.
+              <https://datatracker.ietf.org/doc/html/rfc6020>.
 
    [RFC6241]  Enns, R., Ed., Bjorklund, M., Ed., Schoenwaelder, J., Ed.,
               and A. Bierman, Ed., "Network Configuration Protocol
               (NETCONF)", RFC 6241, DOI 10.17487/RFC6241, June 2011,
-              <https://www.rfc-editor.org/rfc/rfc6241>.
+              <https://datatracker.ietf.org/doc/html/rfc6241>.
 
    [RFC6242]  Wasserman, M., "Using the NETCONF Protocol over Secure
               Shell (SSH)", RFC 6242, DOI 10.17487/RFC6242, June 2011,
-              <https://www.rfc-editor.org/rfc/rfc6242>.
+              <https://datatracker.ietf.org/doc/html/rfc6242>.
 
    [RFC8040]  Bierman, A., Bjorklund, M., and K. Watsen, "RESTCONF
               Protocol", RFC 8040, DOI 10.17487/RFC8040, January 2017,
-              <https://www.rfc-editor.org/rfc/rfc8040>.
+              <https://datatracker.ietf.org/doc/html/rfc8040>.
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
-              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+              May 2017, <https://datatracker.ietf.org/doc/html/rfc8174>.
 
    [RFC8341]  Bierman, A. and M. Bjorklund, "Network Configuration
               Access Control Model", STD 91, RFC 8341,
               DOI 10.17487/RFC8341, March 2018,
-              <https://www.rfc-editor.org/rfc/rfc8341>.
+              <https://datatracker.ietf.org/doc/html/rfc8341>.
 
    [RFC8343]  Bjorklund, M., "A YANG Data Model for Interface
               Management", RFC 8343, DOI 10.17487/RFC8343, March 2018,
-              <https://www.rfc-editor.org/rfc/rfc8343>.
+              <https://datatracker.ietf.org/doc/html/rfc8343>.
 
    [RFC8345]  Clemm, A., Medved, J., Varga, R., Bahadur, N.,
               Ananthakrishnan, H., and X. Liu, "A YANG Data Model for
               Network Topologies", RFC 8345, DOI 10.17487/RFC8345, March
-              2018, <https://www.rfc-editor.org/rfc/rfc8345>.
+              2018, <https://datatracker.ietf.org/doc/html/rfc8345>.
 
    [RFC8446]  Rescorla, E., "The Transport Layer Security (TLS) Protocol
               Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,
-              <https://www.rfc-editor.org/rfc/rfc8446>.
+              <https://datatracker.ietf.org/doc/html/rfc8446>.
 
    [RFC8795]  Liu, X., Bryskin, I., Beeram, V., Saad, T., Shah, H., and
               O. Gonzalez de Dios, "YANG Data Model for Traffic
               Engineering (TE) Topologies", RFC 8795,
               DOI 10.17487/RFC8795, August 2020,
-              <https://www.rfc-editor.org/rfc/rfc8795>.
+              <https://datatracker.ietf.org/doc/html/rfc8795>.
 
 8.2.  Informative References
 
@@ -1000,26 +1019,26 @@ Table of Contents
               Shah, "OSPF Traffic Engineering (OSPF-TE) Link
               Availability Extension for Links with Variable Discrete
               Bandwidth", RFC 8330, DOI 10.17487/RFC8330, February 2018,
-              <https://www.rfc-editor.org/rfc/rfc8330>.
+              <https://datatracker.ietf.org/doc/html/rfc8330>.
 
    [RFC8340]  Bjorklund, M. and L. Berger, Ed., "YANG Tree Diagrams",
               BCP 215, RFC 8340, DOI 10.17487/RFC8340, March 2018,
-              <https://www.rfc-editor.org/rfc/rfc8340>.
+              <https://datatracker.ietf.org/doc/html/rfc8340>.
 
    [RFC8453]  Ceccarelli, D., Ed. and Y. Lee, Ed., "Framework for
               Abstraction and Control of TE Networks (ACTN)", RFC 8453,
               DOI 10.17487/RFC8453, August 2018,
-              <https://www.rfc-editor.org/rfc/rfc8453>.
+              <https://datatracker.ietf.org/doc/html/rfc8453>.
 
    [RFC8561]  Ahlberg, J., Ye, M., Li, X., Spreafico, D., and M.
               Vaupotic, "A YANG Data Model for Microwave Radio Link",
               RFC 8561, DOI 10.17487/RFC8561, June 2019,
-              <https://www.rfc-editor.org/rfc/rfc8561>.
+              <https://datatracker.ietf.org/doc/html/rfc8561>.
 
    [RFC8944]  Dong, J., Wei, X., Wu, Q., Boucadair, M., and A. Liu, "A
               YANG Data Model for Layer 2 Network Topologies", RFC 8944,
               DOI 10.17487/RFC8944, November 2020,
-              <https://www.rfc-editor.org/rfc/rfc8944>.
+              <https://datatracker.ietf.org/doc/html/rfc8944>.
 
 Appendix A.  Examples of the application of the Topology Models
 
@@ -2073,29 +2092,35 @@ Authors' Addresses
 
    Jonas Ahlberg
    Ericsson
+
    Email: jonas.ahlberg@ericsson.com
 
 
    Scott Mansfield
    Ericsson
+
    Email: scott.mansfield@ericsson.com
 
 
    Min Ye
    Huawei Technologies
+
    Email: amy.yemin@huawei.com
 
 
    Italo Busi
    Huawei Technologies
+
    Email: italo.busi@huawei.com
 
 
    Xi Li
    NEC Laboratories Europe
+
    Email: xi.li@neclab.eu
 
 
    Daniela Spreafico
    Nokia - IT
+
    Email: daniela.spreafico@nokia.com
