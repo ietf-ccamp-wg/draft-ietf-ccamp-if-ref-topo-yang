@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-10-13T02:40:34.834328+00:00",
+  "timestamp": "2022-10-23T02:42:17.973451+00:00",
   "repo": "ietf-ccamp-wg/draft-ietf-ccamp-mw-topo-yang",
   "labels": [
     {
@@ -169,7 +169,7 @@
       ],
       "body": "o\tDo nodes provide this info on a link/carrier level?\r\no\tHow often do they change?\r\no\tAverage value over which period of time?\r\no\tRetrieve from node?\r\n",
       "createdAt": "2022-01-13T12:29:15Z",
-      "updatedAt": "2022-09-29T10:00:48Z",
+      "updatedAt": "2022-10-20T09:56:12Z",
       "closedAt": null,
       "comments": [
         {
@@ -227,6 +227,13 @@
           "body": "Bandwidth utilization is recommended to be based on \"tx-bytes-sent\".\r\n\"tx-bytes-sent is not included/supported in the RFC 8561 device model.\r\nout-octets is included in RFC 7223, but is referring to the ethernet level.\r\nTime slot for the measurement still remains to be decided - or should we allow vendor specific implementations, described in a separate data node for the time window used.",
           "createdAt": "2022-09-29T10:00:48Z",
           "updatedAt": "2022-09-29T10:00:48Z"
+        },
+        {
+          "author": "JonasAhl",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Continued to discuss Issue #3:\r\nClarify that it is about utilized bandwidth, not utilization in percentage.\r\nChange the name of the attribute accordingly.\r\nProposal is to add a node/leaf for the time-window.\r\nClarify/describe that the utilization can be calculated in different ways depending on the policy used. \r\nCompare e.g. with max in highest modulation, or max in current modulation, etc.\r\n",
+          "createdAt": "2022-10-20T09:56:12Z",
+          "updatedAt": "2022-10-20T09:56:12Z"
         }
       ]
     },
@@ -787,7 +794,7 @@
       "id": "I_kwDOGF2QDc5Ralsr",
       "title": "Replace type from 8561bis to topology model",
       "url": "https://github.com/ietf-ccamp-wg/draft-ietf-ccamp-mw-topo-yang/issues/23",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "samans",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [
@@ -796,8 +803,8 @@
       "labels": [],
       "body": "decouple the 68561bis work from the mw-topo-yang work.",
       "createdAt": "2022-09-08T09:47:50Z",
-      "updatedAt": "2022-09-08T09:47:50Z",
-      "closedAt": null,
+      "updatedAt": "2022-10-20T17:13:34Z",
+      "closedAt": "2022-10-20T17:13:34Z",
       "comments": []
     }
   ],
@@ -889,26 +896,50 @@
       "id": "PR_kwDOGF2QDc5ApAs7",
       "title": "Updated RLT mode",
       "url": "https://github.com/ietf-ccamp-wg/draft-ietf-ccamp-mw-topo-yang/pull/24",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "italobusi",
       "authorAssociation": "MEMBER",
       "assignees": [],
       "labels": [],
       "body": "Updated RLT mode definition: fix #23",
       "createdAt": "2022-10-12T10:46:36Z",
-      "updatedAt": "2022-10-12T10:46:37Z",
+      "updatedAt": "2022-10-21T09:10:12Z",
       "baseRepository": "ietf-ccamp-wg/draft-ietf-ccamp-mw-topo-yang",
       "baseRefName": "main",
       "baseRefOid": "6e7b271779cf3ef50ab4e6f7217def682df2e872",
       "headRepository": "italobusi/draft-ietf-ccamp-mw-topo-yang",
       "headRefName": "rlt-mode",
       "headRefOid": "f3f47dc320ac530bcae53edf58548ae4848ac361",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "closedAt": "2022-10-20T17:13:33Z",
+      "mergedAt": "2022-10-20T17:13:33Z",
+      "mergedBy": "samans",
+      "mergeCommit": {
+        "oid": "063a2ee292f74e9777c37817379b9d41b3d32f51"
+      },
+      "comments": [
+        {
+          "author": "italobusi",
+          "authorAssociation": "MEMBER",
+          "body": "@samans : I cannot run the make file on my machine, maybe this is the reason why checks fail",
+          "createdAt": "2022-10-20T10:24:41Z",
+          "updatedAt": "2022-10-20T10:24:41Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGF2QDc5Eh0eW",
+          "commit": {
+            "abbreviatedOid": "f3f47dc"
+          },
+          "author": "DanielaSpreafico",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "No comments. I accept the changes",
+          "createdAt": "2022-10-20T17:44:35Z",
+          "updatedAt": "2022-10-20T17:44:35Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
