@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-10-23T02:42:17.973451+00:00",
+  "timestamp": "2022-10-27T02:22:02.086799+00:00",
   "repo": "ietf-ccamp-wg/draft-ietf-ccamp-mw-topo-yang",
   "labels": [
     {
@@ -169,7 +169,7 @@
       ],
       "body": "o\tDo nodes provide this info on a link/carrier level?\r\no\tHow often do they change?\r\no\tAverage value over which period of time?\r\no\tRetrieve from node?\r\n",
       "createdAt": "2022-01-13T12:29:15Z",
-      "updatedAt": "2022-10-20T09:56:12Z",
+      "updatedAt": "2022-10-26T15:05:30Z",
       "closedAt": null,
       "comments": [
         {
@@ -234,6 +234,27 @@
           "body": "Continued to discuss Issue #3:\r\nClarify that it is about utilized bandwidth, not utilization in percentage.\r\nChange the name of the attribute accordingly.\r\nProposal is to add a node/leaf for the time-window.\r\nClarify/describe that the utilization can be calculated in different ways depending on the policy used. \r\nCompare e.g. with max in highest modulation, or max in current modulation, etc.\r\n",
           "createdAt": "2022-10-20T09:56:12Z",
           "updatedAt": "2022-10-20T09:56:12Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "MEMBER",
+          "body": "Let's check that we have a common view about the definitions:\r\n\r\n<img src=\"https://latex.codecogs.com/gif.image?\\dpi{110}utilizedBw=\\frac{txBytes}{timeWindow}*8\"/>\r\n\r\n<img src=\"https://latex.codecogs.com/gif.image?\\dpi{110}BwUtilization=\\frac{utilizedBw}{linkBw}\"/>\r\n\r\nIn order to get comparable values, a common/standard definition is needed for\r\n1. _txBytes_\r\n2. _timeWindow_ \r\n3. _linkBw_\r\n\r\nReporting the _utilizedBw_ instead of the _BwUtilization_ removes the need for a common/standard definition of the _linkBw_.\r\n\r\nReporting the _timeWindow_ removes the need for a common/standard definition of the _timeWindow_,\r\n\r\nI am not sure whether we have a common/standard definition for counting the _txBytes_: to be investigated.",
+          "createdAt": "2022-10-26T13:03:17Z",
+          "updatedAt": "2022-10-26T13:03:17Z"
+        },
+        {
+          "author": "DanielaSpreafico",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I agree with the concept and the formula about utilizedBw and BwUtilization.\r\n\r\nThe txBytes has to be the bytes sent on the timeWindow, so the difference between the tx bytes sent at T0 and tx bytes sent at T1 where T1-T0 = timeWindow.\r\n",
+          "createdAt": "2022-10-26T13:58:49Z",
+          "updatedAt": "2022-10-26T13:58:49Z"
+        },
+        {
+          "author": "JonasAhl",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I also agree with the concept and Daniela\u00b4s addition, but I'm not sure I understand the first formula.\r\nWhy is there a multiplication with 8?\r\nIsn't 1 byte = 8 bits and not the opposite, which I think could be the mistake.\r\n",
+          "createdAt": "2022-10-26T15:05:30Z",
+          "updatedAt": "2022-10-26T15:05:30Z"
         }
       ]
     },
@@ -510,9 +531,17 @@
       ],
       "body": "",
       "createdAt": "2022-02-17T13:03:31Z",
-      "updatedAt": "2022-03-10T12:07:32Z",
+      "updatedAt": "2022-10-26T16:37:32Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "italobusi",
+          "authorAssociation": "MEMBER",
+          "body": "See section 3.2 of https://www.rfc-editor.org/rfc/rfc8432.html",
+          "createdAt": "2022-10-26T16:37:32Z",
+          "updatedAt": "2022-10-26T16:37:32Z"
+        }
+      ]
     },
     {
       "number": 12,
