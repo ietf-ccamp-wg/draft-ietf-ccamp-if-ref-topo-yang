@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-10-27T02:22:02.086799+00:00",
+  "timestamp": "2022-10-30T02:37:28.401946+00:00",
   "repo": "ietf-ccamp-wg/draft-ietf-ccamp-mw-topo-yang",
   "labels": [
     {
@@ -169,7 +169,7 @@
       ],
       "body": "o\tDo nodes provide this info on a link/carrier level?\r\no\tHow often do they change?\r\no\tAverage value over which period of time?\r\no\tRetrieve from node?\r\n",
       "createdAt": "2022-01-13T12:29:15Z",
-      "updatedAt": "2022-10-26T15:05:30Z",
+      "updatedAt": "2022-10-27T11:11:24Z",
       "closedAt": null,
       "comments": [
         {
@@ -255,6 +255,20 @@
           "body": "I also agree with the concept and Daniela\u00b4s addition, but I'm not sure I understand the first formula.\r\nWhy is there a multiplication with 8?\r\nIsn't 1 byte = 8 bits and not the opposite, which I think could be the mistake.\r\n",
           "createdAt": "2022-10-26T15:05:30Z",
           "updatedAt": "2022-10-26T15:05:30Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "MEMBER",
+          "body": "> I also agree with the concept and Daniela\u00b4s addition, but I'm not sure I understand the first formula. Why is there a multiplication with 8? Isn't 1 byte = 8 bits and not the opposite, which I think could be the mistake.\r\n\r\nGood point, I think that adding the measurements units would help:\r\n\r\n<img src=\"https://latex.codecogs.com/gif.image?\\dpi{110}utilizedBw=\\frac{txBytes*8}{timeWindow}\\;&space;[bits/sec]\"/>\r\n\r\n<img src=\"https://latex.codecogs.com/gif.image?\\dpi{110}BwUtilization=\\frac{utilizedBw}{linkBw}*100\\,&space;[%]\"/>\r\n",
+          "createdAt": "2022-10-27T09:00:50Z",
+          "updatedAt": "2022-10-27T09:00:50Z"
+        },
+        {
+          "author": "samans",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "A few observations and questions about the bandwidth topic.\r\n[mw-bandwidth-questions.pptx](https://github.com/ietf-ccamp-wg/draft-ietf-ccamp-mw-topo-yang/files/9878722/mw-bandwidth-questions.pptx)\r\n",
+          "createdAt": "2022-10-27T11:11:24Z",
+          "updatedAt": "2022-10-27T11:11:24Z"
         }
       ]
     },
