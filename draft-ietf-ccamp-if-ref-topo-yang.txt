@@ -5,14 +5,14 @@
 ccamp                                                         J. Ahlberg
 Internet-Draft                                              S. Mansfield
 Intended status: Standards Track                                Ericsson
-Expires: 10 June 2023                                              M. Ye
+Expires: 22 July 2023                                              M. Ye
                                                                  I. Busi
                                                      Huawei Technologies
                                                                    X. Li
                                                  NEC Laboratories Europe
                                                             D. Spreafico
                                                               Nokia - IT
-                                                         7 December 2022
+                                                         18 January 2023
 
 
            A YANG Data Model for Interface Reference Topology
@@ -21,7 +21,7 @@ Expires: 10 June 2023                                              M. Ye
 Abstract
 
    This document defines a YANG data model to provide a reference from a
-   terination point in a topology model to interface management
+   termination point in a topology model to interface management
    information.
 
 Discussion Venues
@@ -46,11 +46,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 June 2023.
+   This Internet-Draft will expire on 22 July 2023.
 
 Copyright Notice
 
-   Copyright (c) 2022 IETF Trust and the persons identified as the
+   Copyright (c) 2023 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -267,8 +267,8 @@ Table of Contents
    default).  This data node may be considered sensitive or vulnerable
    in some network environments.  Write operations (e.g., edit-config)
    to this data node without proper protection can have a negative
-   effect on network operations.  This is the data node
-   and its sensitivity/vulnerability:
+   effect on network operations.  This is the subtrees and data node and
+   its sensitivity/vulnerability:
 
    *  tp-to-interface-path: A malicious client could set an arbitrary
       path that could allow a client to retrieve incorrect information.
@@ -290,7 +290,7 @@ Table of Contents
 
     Name: ietf-tp-interface-reference-topology
     Maintained by IANA?: N
-    Namespace: urn:ietf:params:xml:ns:yang:ietf-tp-interface-reference-topology
+    Namespace: urn:ietf:params:xml:ns:yang:ietf-interface-reference-topology
     Prefix: ifref
     Reference: RFC XXXX
 
@@ -377,7 +377,7 @@ A.1.  A tree for a complete Interface Reference Topology Model
    defined in [RFC8345], Traffic Engineering (TE) Topologies model
    defined in [RFC8795] with a possibility to reference interface
    management information.
-   
+
    module: ietf-network
      +--rw networks
         +--rw network* [network-id]
@@ -387,7 +387,8 @@ A.1.  A tree for a complete Interface Reference Topology Model
               +--rw nt:termination-point* [tp-id]
                  +--rw nt:tp-id           tp-id
                  +--rw tet:te!
-                    +--rw ifref:tp-to-interface-path?  -> /if:interfaces/interface/name
+                    +--rw ifref:tp-to-interface-path?\
+                      -> /if:interfaces/interface/name
 
 A.2.  A topology with single link referencing interface mangement
       information

@@ -48,13 +48,13 @@ normative:
 informative:
 
 --- abstract
-This document defines a YANG data model to provide a reference from a terination point in a topology model to interface management information.
+This document defines a YANG data model to provide a reference from a termination point in a topology model to interface management information.
 
 --- middle
 
 # Introduction
 
-his document defines a YANG data model to provide a reference from a terination point in a topology model to interface management information.  It introduces a way to reference the information in a YANG data model for interface management {{!RFC8343}} that could be useful for all types of termination points.  The model augments "YANG Data Model for Traffic Engineering (TE) Topologies" defined in {{!RFC8795}}, which is based on "A YANG Data Model for Network Topologies" defined in {{!RFC8345}}.
+This document defines a YANG data model to provide a reference from a termination point in a topology model to interface management information.  It introduces a way to reference the information in a YANG data model for interface management {{!RFC8343}} that could be useful for all types of termination points.  The model augments "YANG Data Model for Traffic Engineering (TE) Topologies" defined in {{!RFC8795}}, which is based on "A YANG Data Model for Network Topologies" defined in {{!RFC8345}}.
 
 The interface reference model is expected to be used between a Provisioning Network Controller (PNC) and a Multi Domain Service Coordinator(MDSC) {{?RFC8453}}.  Different use cases require access to different attributes and in order not to restrict what use cases can be supported, all attributes supported by the interface management model is with this model made accessible from the topology model.
 
@@ -105,13 +105,13 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
    The security considerations from {{!RFC8345}} are applicable to the
    module in this document.
 
-   There are a several data nodes defined in this YANG module that are
+   There is a data node defined in this YANG module that is 
    writable/creatable/deletable (i.e., config true, which is the
-   default).  These data nodes may be considered sensitive or vulnerable
+   default).  This data node may be considered sensitive or vulnerable
    in some network environments.  Write operations (e.g., edit-config)
-   to these data nodes without proper protection can have a negative
-   effect on network operations.  These are the subtrees and data nodes
-   and their sensitivity/vulnerability:
+   to this data node without proper protection can have a negative
+   effect on network operations.  This is the subtrees and data node
+   and its sensitivity/vulnerability:
 
    -  tp-to-interface-path: A malicious client could set an arbitrary
       path that could allow a client to retrieve incorrect information.
@@ -124,7 +124,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
    IANA is asked to assign a new URI from the "IETF XML Registry" {{!RFC3688}} as follows:
 
 ~~~~
-URI: urn:ietf:params:xml:ns:yang:ietf-interface-reference-topology
+URI: urn:ietf:params:xml:ns:yang:ietf-tp-interface-reference-topology
 Registrant Contact: The IESG
 XML: N/A; the requested URI is an XML namespace.
 ~~~~
@@ -133,10 +133,10 @@ XML: N/A; the requested URI is an XML namespace.
    Module Names" registry {{!RFC6020}} as follows:
 
 ~~~~
-    Name: ietf-interface-reference-topology
+    Name: ietf-tp-interface-reference-topology
     Maintained by IANA?: N
     Namespace: urn:ietf:params:xml:ns:yang:ietf-interface-reference-topology
-    Prefix: ifreftopo
+    Prefix: ifref
     Reference: RFC XXXX
 ~~~~
 
