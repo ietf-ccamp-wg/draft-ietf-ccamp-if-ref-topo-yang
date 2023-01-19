@@ -1,0 +1,68 @@
+{
+  "ietf-network:networks": {
+    "network": [
+      {
+        "network-id": "L2-network",
+        "network-types": {
+          "ietf-te-topology:te-topology": {
+            "ietf-eth-te-topology:eth-tran-topology": {
+            }
+          }
+        },
+        "node": [
+          {
+            "node-id": "L2-N1",
+            "ietf-network-topology:termination-point": [
+              {
+                "tp-id": "L2-N1-TP1",
+                "ietf-te-topology:te-tp-id": "1",
+                "ietf-te-topology:te": {
+                  "ietf-tp-interface-reference-topology:tp-to-interface-path":"L2Interface1"
+                }
+              }
+            ]
+          },
+          {
+            "node-id": "L2-N2",
+            "ietf-network-topology:termination-point": [
+              {
+                "tp-id": "L2-N2-TP2",
+                 "ietf-te-topology:te-tp-id": "1",
+                "ietf-te-topology:te": {
+                  "ietf-tp-interface-reference-topology:tp-to-interface-path":"L2Interface2"
+                }
+              }
+            ]
+          }
+        ],
+        "ietf-network-topology:link": [
+          {
+            "link-id": "L2-N1-N2",
+            "source": {
+              "source-node": "L2-N1",
+              "source-tp": "L2-N1-TP1"
+            },
+            "destination": {
+              "dest-node": "L2-N2",
+              "dest-tp": "L2-N2-TP2"
+            },
+          }
+        ]
+      },
+    ]
+  },
+  "ietf-interfaces:interfaces": {
+    "interface": [
+      {
+        "name": "L2Interface1",
+        "description": "'Ethernet Interface 1'",
+        "type": "iana-if-type:ethernetCsmacd"
+      },
+      {
+        "name": "L2Interface2",
+        "description": "'Ethernet Interface 2'",
+        "type": "iana-if-type:ethernetCsmacd"
+      },    
+    ]
+  }
+}
