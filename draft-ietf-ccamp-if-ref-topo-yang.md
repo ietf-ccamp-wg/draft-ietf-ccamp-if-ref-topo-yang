@@ -105,7 +105,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
    The security considerations from {{!RFC8345}} are applicable to the
    module in this document.
 
-   There is a data node defined in this YANG module that is 
+   There is a data node defined in this YANG module that is
    writable/creatable/deletable (i.e., config true, which is the
    default).  This data node may be considered sensitive or vulnerable
    in some network environments.  Write operations (e.g., edit-config)
@@ -135,14 +135,15 @@ XML: N/A; the requested URI is an XML namespace.
 ~~~~
     Name: ietf-tp-interface-reference-topology
     Maintained by IANA?: N
-    Namespace: urn:ietf:params:xml:ns:yang:ietf-interface-reference-topology
+    Namespace:
+      urn:ietf:params:xml:ns:yang:ietf-interface-reference-topology
     Prefix: ifref
     Reference: RFC XXXX
 ~~~~
 
 --- back
 
-# Examples of the application of the Topology Model {#examples}
+# Examples of the Interface Reference Topology Model {#examples}
 
    This appendix provides some examples and illustrations of how the
    Interface Reference Topology Model can be used.  There is one
@@ -161,7 +162,9 @@ XML: N/A; the requested URI is an XML namespace.
 ~~~~
 {: artwork-name="full-if.tree"}
 
-## A topology with single link referencing interface mangement information
-
-   TBD.
-
+## A JSON example
+~~~~ json
+{::include ./exampleInterfRef.json}
+~~~~
+{: artwork-name="exampleInterfRef.json"}
+{: sourcecode-markers="false" sourcecode-name="exampleInterfRef.json"}

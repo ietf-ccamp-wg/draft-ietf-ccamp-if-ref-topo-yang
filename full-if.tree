@@ -9,4 +9,3 @@ module: ietf-network
               +--rw tet:te!
                  +--rw ifref:tp-to-interface-path?\
                    -> /if:interfaces/interface/name
-

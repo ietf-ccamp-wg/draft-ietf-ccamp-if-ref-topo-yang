@@ -5,14 +5,14 @@
 ccamp                                                         J. Ahlberg
 Internet-Draft                                              S. Mansfield
 Intended status: Standards Track                                Ericsson
-Expires: 22 July 2023                                              M. Ye
+Expires: 23 July 2023                                              M. Ye
                                                                  I. Busi
                                                      Huawei Technologies
                                                                    X. Li
                                                  NEC Laboratories Europe
                                                             D. Spreafico
                                                               Nokia - IT
-                                                         18 January 2023
+                                                         19 January 2023
 
 
            A YANG Data Model for Interface Reference Topology
@@ -46,7 +46,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 22 July 2023.
+   This Internet-Draft will expire on 23 July 2023.
 
 Copyright Notice
 
@@ -76,10 +76,9 @@ Table of Contents
    6.  References
      6.1.  Normative References
      6.2.  Informative References
-   Appendix A.  Examples of the application of the Topology Model
+   Appendix A.  Examples of the Interface Reference Topology Model
      A.1.  A tree for a complete Interface Reference Topology Model
-     A.2.  A topology with single link referencing interface mangement
-           information
+     A.2.  A JSON example
    Authors' Addresses
 
 1.  Introduction
@@ -288,11 +287,12 @@ Table of Contents
    It is proposed that IANA should record YANG module names in the "YANG
    Module Names" registry [RFC6020] as follows:
 
-    Name: ietf-tp-interface-reference-topology
-    Maintained by IANA?: N
-    Namespace: urn:ietf:params:xml:ns:yang:ietf-interface-reference-topology
-    Prefix: ifref
-    Reference: RFC XXXX
+       Name: ietf-tp-interface-reference-topology
+       Maintained by IANA?: N
+       Namespace:
+         urn:ietf:params:xml:ns:yang:ietf-interface-reference-topology
+       Prefix: ifref
+       Reference: RFC XXXX
 
 6.  References
 
@@ -364,7 +364,7 @@ Table of Contents
               DOI 10.17487/RFC8453, August 2018,
               <https://www.rfc-editor.org/rfc/rfc8453>.
 
-Appendix A.  Examples of the application of the Topology Model
+Appendix A.  Examples of the Interface Reference Topology Model
 
    This appendix provides some examples and illustrations of how the
    Interface Reference Topology Model can be used.  There is one
@@ -390,10 +390,77 @@ A.1.  A tree for a complete Interface Reference Topology Model
                     +--rw ifref:tp-to-interface-path?\
                       -> /if:interfaces/interface/name
 
-A.2.  A topology with single link referencing interface mangement
-      information
+A.2.  A JSON example
 
-   TBD.
+   {
+     "ietf-interfaces:interfaces": {
+       "interface": [
+         {
+           "name": "L2Interface1",
+           "description": "'Ethernet Interface 1'",
+           "type": "iana-if-type:ethernetCsmacd"
+         },
+         {
+           "name": "L2Interface2",
+           "description": "'Ethernet Interface 2'",
+           "type": "iana-if-type:ethernetCsmacd"
+         }
+       ]
+     },
+     "ietf-network:networks": {
+       "network": [
+         {
+           "network-id": "L2-network",
+           "network-types": {
+             "ietf-te-topology:te-topology": {
+               "ietf-eth-te-topology:eth-tran-topology": {}
+             }
+           },
+           "node": [
+             {
+               "node-id": "L2-N1",
+               "ietf-network-topology:termination-point": [
+                 {
+                   "tp-id": "L2-N1-TP1",
+                   "ietf-te-topology:te-tp-id": "10.10.10.1",
+                   "ietf-te-topology:te": {
+     "ietf-tp-interface-reference-topology:tp-to-interface-path":
+        "L2Interface1"
+                   }
+                 }
+               ]
+             },
+             {
+               "node-id": "L2-N2",
+               "ietf-network-topology:termination-point": [
+                 {
+                   "tp-id": "L2-N2-TP2",
+                   "ietf-te-topology:te-tp-id": "10.10.10.2",
+                   "ietf-te-topology:te": {
+     "ietf-tp-interface-reference-topology:tp-to-interface-path":
+        "L2Interface2"
+                   }
+                 }
+               ]
+             }
+           ],
+           "ietf-network-topology:link": [
+             {
+               "link-id": "L2-N1-N2",
+               "source": {
+                 "source-node": "L2-N1",
+                 "source-tp": "L2-N1-TP1"
+               },
+               "destination": {
+                 "dest-node": "L2-N2",
+                 "dest-tp": "L2-N2-TP2"
+               }
+             }
+           ]
+         }
+       ]
+     }
+   }
 
 Authors' Addresses
 
