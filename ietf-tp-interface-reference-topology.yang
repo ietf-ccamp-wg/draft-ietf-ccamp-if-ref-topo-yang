@@ -32,7 +32,6 @@ module ietf-tp-interface-reference-topology {
    contact
      "WG List: <mailto:ccamp@ietf.org>
 
-//[JonasA] Who would like to be on the list of editors/contributors?
       Editor: Jonas Ahlberg
               <mailto:jonas.ahlberg@ericsson.com>
       Editor: Scott Mansfield
@@ -48,8 +47,6 @@ module ietf-tp-interface-reference-topology {
               <mailto:daniela.spreafico@nokia.com>
      ";
 
-   // Note to RFC Editor: replace XXXX with actual RFC number and
-   // remove this note.
    description
      "This is a module for defining a reference from a termination
       point in a te topology to a list element in interfaces
