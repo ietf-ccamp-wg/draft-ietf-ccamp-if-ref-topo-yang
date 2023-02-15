@@ -75,7 +75,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ## YANG Tree
 ~~~~ yangtree
-{::include ./if.tree}
+{::include ./trees/if.tree}
 ~~~~
 {: artwork-name="if.tree"}
 
@@ -158,13 +158,13 @@ XML: N/A; the requested URI is an XML namespace.
    management information.
 
 ~~~~ yangtree
-{::include ./full-if.tree}
+{::include ./trees/full-if.tree}
 ~~~~
 {: artwork-name="full-if.tree"}
 
 ## A JSON example
 ~~~~ json
-{::include ./exampleInterfRef.json}
+{::include ./json/exampleInterfRef.json}
 ~~~~
 {: artwork-name="exampleInterfRef.json"}
 {: sourcecode-markers="false" sourcecode-name="exampleInterfRef.json"}
