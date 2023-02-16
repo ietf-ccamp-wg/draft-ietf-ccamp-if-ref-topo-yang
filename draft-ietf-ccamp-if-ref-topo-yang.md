@@ -168,3 +168,9 @@ XML: N/A; the requested URI is an XML namespace.
 ~~~~
 {: artwork-name="exampleInterfRef.json"}
 {: sourcecode-markers="false" sourcecode-name="exampleInterfRef.json"}
+
+{: numbered="false"}
+# Acknowledgments
+   This document was prepared using kramdown
+
+   The authors would like to thank ...
