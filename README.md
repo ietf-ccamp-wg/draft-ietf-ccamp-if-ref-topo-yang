@@ -1,8 +1,8 @@
-# A YANG Data Model for Interface References
+# A YANG Data Model for Interface Reference Topology
 
-This is the working area for the IETF [CCAMP Working Group](https://datatracker.ietf.org/wg/ccamp/documents/) Internet-Draft, "A YANG Data Model for Interface References for Topologies".
+This is the working area for the IETF [CCAMP Working Group](https://datatracker.ietf.org/wg/ccamp/documents/) Internet-Draft, "A YANG Data Model for Interface Reference Topology".
 
-* [Editor's Copy](https://ietf-ccamp-wg.github.io/draft-ietf-ccamp-mw-topo-yang/#go.draft-ietf-ccamp-if-ref-topo-yang.html)
+* [Editor's Copy](https://ietf-ccamp-wg.github.io/draft-ietf-ccamp-if-ref-topo-yang/#go.draft-ietf-ccamp-if-ref-topo-yang.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-ccamp-if-ref-topo-yang)
 * [Working Group Draft](https://datatracker.ietf.org/doc/html/draft-ietf-ccamp-if-ref-topo-yang)
 * [Compare Editor's Copy to Working Group Draft](https://ietf-ccamp-wg.github.io/draft-ietf-ccamp-if-ref-topo-yang/#go.draft-ietf-ccamp-if-ref-topo-yang.diff)
