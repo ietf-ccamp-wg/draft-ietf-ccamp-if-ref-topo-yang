@@ -1040,11 +1040,11 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Interface Reference Topology YANG Model</td>
-<td class="right">March 2023</td>
+<td class="right">October 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Ahlberg, et al.</td>
-<td class="center">Expires 7 September 2023</td>
+<td class="center">Expires 20 April 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1052,26 +1052,26 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <div id="internal-metadata" class="document-information">
 <dl id="identifiers">
 <dt class="label-workgroup">Workgroup:</dt>
-<dd class="workgroup">ccamp</dd>
+<dd class="workgroup">CCAMP Working Group</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
 <dd class="internet-draft">draft-ietf-ccamp-if-ref-topo-yang-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-03-06" class="published">6 March 2023</time>
+<time datetime="2023-10-18" class="published">18 October 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-09-07">7 September 2023</time></dd>
+<dd class="expires"><time datetime="2024-04-20">20 April 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
       <div class="author-name">J. Ahlberg</div>
-<div class="org">Ericsson</div>
+<div class="org">Ericsson AB</div>
 </div>
 <div class="author">
       <div class="author-name">S. Mansfield</div>
-<div class="org">Ericsson</div>
+<div class="org">Ericsson Inc</div>
 </div>
 <div class="author">
       <div class="author-name">M. Ye</div>
@@ -1098,12 +1098,20 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <p id="section-abstract-1">This document defines a YANG data model to provide a reference from a termination point in a topology model to interface management information.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
-      <h2 id="name-discussion-venues">
-<a href="#name-discussion-venues" class="section-name selfRef">Discussion Venues</a>
+      <h2 id="name-about-this-document">
+<a href="#name-about-this-document" class="section-name selfRef">About This Document</a>
       </h2>
 <p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
-<p id="section-note.1-2">Source for this draft and an issue tracker can be found at
-    <span><a href="https://github.com/ietf-ccamp-wg/draft-ietf-ccamp-mw-topo-yang">https://github.com/ietf-ccamp-wg/draft-ietf-ccamp-mw-topo-yang</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+<p id="section-note.1-2">
+        The latest revision of this draft can be found at <span><a href="https://github.com/ietf-ccamp-wg/draft-ietf-ccamp-mw-topo-yang">https://github.com/ietf-ccamp-wg/draft-ietf-ccamp-mw-topo-yang</a></span>.
+        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-ietf-ccamp-if-ref-topo-yang/">https://datatracker.ietf.org/doc/draft-ietf-ccamp-if-ref-topo-yang/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+<p id="section-note.1-3">
+        Discussion of this document takes place on the
+        CCAMP Working Group mailing list (<span><a href="mailto:ccamp@ietf.org">mailto:ccamp@ietf.org</a></span>),
+        which is archived at <span><a href="https://datatracker.ietf.org/wg/ccamp/about/">https://datatracker.ietf.org/wg/ccamp/about/</a></span>.
+        Subscribe at <span><a href="https://www.ietf.org/mailman/listinfo/ccamp/">https://www.ietf.org/mailman/listinfo/ccamp/</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
+<p id="section-note.1-4">Source for this draft and an issue tracker can be found at
+        <span><a href="https://github.com/https://github.com/ietf-ccamp-wg/draft-ietf-ccamp-mw-topo-yang">https://github.com/https://github.com/ietf-ccamp-wg/draft-ietf-ccamp-mw-topo-yang</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -1124,7 +1132,7 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 7 September 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 20 April 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1559,7 +1567,7 @@ module: ietf-network
            +--rw nt:termination-point* [tp-id]
               +--rw nt:tp-id           tp-id
               +--rw tet:te!
-                 +--rw ifref:tp-to-interface-path?\
+                 +--rw ifref:tp-to-interface-path?
                    -&gt; /if:interfaces/interface/name
 </pre><a href="#appendix-A.1-2" class="pilcrow">¶</a>
 </div>
@@ -1663,7 +1671,11 @@ module: ietf-network
       </h2>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Jonas Ahlberg</span></div>
-<div dir="auto" class="left"><span class="org">Ericsson</span></div>
+<div dir="auto" class="left"><span class="org">Ericsson AB</span></div>
+<div dir="auto" class="left"><span class="street-address">Lindholmspiren 11</span></div>
+<div dir="auto" class="left">SE-<span class="postal-code">417 56</span> <span class="locality">Goteborg</span>
+</div>
+<div dir="auto" class="left"><span class="country-name">Sweden</span></div>
 <div class="email">
 <span>Email:</span>
 <a href="mailto:jonas.ahlberg@ericsson.com" class="email">jonas.ahlberg@ericsson.com</a>
@@ -1671,7 +1683,7 @@ module: ietf-network
 </address>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Scott Mansfield</span></div>
-<div dir="auto" class="left"><span class="org">Ericsson</span></div>
+<div dir="auto" class="left"><span class="org">Ericsson Inc</span></div>
 <div class="email">
 <span>Email:</span>
 <a href="mailto:scott.mansfield@ericsson.com" class="email">scott.mansfield@ericsson.com</a>
@@ -1680,6 +1692,10 @@ module: ietf-network
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Min Ye</span></div>
 <div dir="auto" class="left"><span class="org">Huawei Technologies</span></div>
+<div dir="auto" class="left"><span class="street-address">No.1899, Xiyuan Avenue</span></div>
+<div dir="auto" class="left"><span class="locality">Chengdu</span></div>
+<div dir="auto" class="left"><span class="postal-code">611731</span></div>
+<div dir="auto" class="left"><span class="country-name">China</span></div>
 <div class="email">
 <span>Email:</span>
 <a href="mailto:amy.yemin@huawei.com" class="email">amy.yemin@huawei.com</a>
@@ -1696,14 +1712,23 @@ module: ietf-network
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Xi Li</span></div>
 <div dir="auto" class="left"><span class="org">NEC Laboratories Europe</span></div>
+<div dir="auto" class="left"><span class="street-address">Kurfursten-Anlage 36</span></div>
+<div dir="auto" class="left">
+<span class="postal-code">69115</span> <span class="locality">Heidelberg</span>
+</div>
+<div dir="auto" class="left"><span class="country-name">Germany</span></div>
 <div class="email">
 <span>Email:</span>
-<a href="mailto:xi.li@neclab.eu" class="email">xi.li@neclab.eu</a>
+<a href="mailto:Xi.Li@neclab.eu" class="email">Xi.Li@neclab.eu</a>
 </div>
 </address>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Daniela Spreafico</span></div>
 <div dir="auto" class="left"><span class="org">Nokia - IT</span></div>
+<div dir="auto" class="left"><span class="street-address">Via Energy Park, 14</span></div>
+<div dir="auto" class="left">
+<span class="postal-code">20871</span> <span class="locality">Vimercate (MI)</span> </div>
+<div dir="auto" class="left"><span class="country-name">Italy</span></div>
 <div class="email">
 <span>Email:</span>
 <a href="mailto:daniela.spreafico@nokia.com" class="email">daniela.spreafico@nokia.com</a>

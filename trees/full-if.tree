@@ -7,5 +7,5 @@ module: ietf-network
            +--rw nt:termination-point* [tp-id]
               +--rw nt:tp-id           tp-id
               +--rw tet:te!
-                 +--rw ifref:tp-to-interface-path?\
+                 +--rw ifref:tp-to-interface-path?
                    -> /if:interfaces/interface/name
