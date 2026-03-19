@@ -68,6 +68,7 @@ normative:
 informative:
 
 --- abstract
+
 This document defines a YANG data model to provide a reference from a termination point in a topology model to interface management information.
 
 --- middle
